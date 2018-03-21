@@ -149,8 +149,8 @@ Clause& Clause::operator=(const Clause& model)
 void Clause::agrandir(int newcapa, bool dup)
 {
     if(newcapa<=capa) return;
-    /*13*/printf("+tableau<%p:%d>\n",tab,capa*sizeof(int));
     int* tmp = new int[newcapa];
+    /*13*/printf("+tableau<%p:%d>\n",tmp,newcapa*sizeof(int));
     if(dup)
     {
         for(int i=0; i<n; i++)
@@ -161,6 +161,8 @@ void Clause::agrandir(int newcapa, bool dup)
     /*14*/printf("-tableau<%p>\n",tab);
     delete[] tab;
     tab = tmp;
+    
+/*13*/
 }
 
 int Clause::isin(int lit)
@@ -181,8 +183,8 @@ void Clause::affiche()
     for(int i=0;i<n;i++){
     	cout << this.tab[i] << "," << endl;
     }
-	 cout << "]" << endl;
-    cout << "+Clause<" << this << ":" << capa << ">" << endl;
+    cout << "]" << endl;
+    cout << "-tableau<" << &this.tab << ">" << endl
 }
 
 void Clause::add(int lit)
