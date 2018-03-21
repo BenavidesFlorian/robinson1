@@ -194,7 +194,10 @@ void Clause::affiche()
 
 void Clause::add(int lit)
 {
-   if(j==0){
+    if(isin(lit)==-1{
+	   cout << "Erreur, la négation de ce littéral est dans la classe courante." << endl;
+        }
+	else if(isin(lit)==0){
 	   if(this.n==this.capa){
 		   this.agrandir(this.capa+5,1);
 		   this.tab[this.n+1]=lit;
@@ -209,7 +212,7 @@ void Clause::add(int lit)
 int main()
 {
    cout << "--> Clause p(-1,2,-3);" << endl;
-   Clause p(-, 2,-3);
+   Clause p(-1, 2,-3);
    p.affichce(); cout << endl;
     return 0;
 }
