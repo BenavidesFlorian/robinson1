@@ -168,32 +168,48 @@ void Clause::agrandir(int newcapa, bool dup)
 int Clause::isin(int lit)
 {
     for(int i=0;i<n;i++){
-				if(lit==tab[i])return 1;
-				else{ if(-lit==tab[i])return -1;
-						else return 0;
+	if(lit==tab[i])return 1;
+	else{ if(-lit==tab[i])return -1;
+	      else return 0;
 				}
 	 }
 }
 
 void Clause::affiche()
 {
-    cout << "+Clause<" << &this << ":" << capa << ">" << endl;
+    /*cout << "+Clause<" << &this << ":" << capa << ">" << endl;
+    printf("+Clause<")
     cout << "+tableau<" << &this.tab << ":" << capa << ">" << endl;
     cout << "[" << i;
     for(int i=0;i<n;i++){
     	cout << this.tab[i] << "," << endl;
     }
     cout << "]" << endl;
-    cout << "-tableau<" << &this.tab << ">" << endl
+    cout << "-tableau<" << &this.tab << ">" << endl;
+    cout << "-Clause<" << &this << ">" << endl;*/
+    for(int i=0;i<n;i++){
+    	cout << this.tab[i] << "," << endl;
+    }
 }
 
 void Clause::add(int lit)
 {
-    /// A compléter
+   if(j==0){
+	   if(this.n==this.capa){
+		   this.agrandir(this.capa+5,1);
+		   this.tab[this.n+1]=lit;
+		   this.n=this.n+1;
+	   }
+	   else{
+	   	this.tab[this.n+1]=lit;
+		this.n=this.n+1;
+	   }
 }
 
 int main()
 {
-    /// A compléter (pour tester vos solutions)
+   cout << "--> Clause p(-1,2,-3);" << endl;
+   Clause p(-, 2,-3);
+   p.affichce(); cout << endl;
     return 0;
 }
