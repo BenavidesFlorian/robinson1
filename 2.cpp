@@ -189,7 +189,16 @@ void Clause::affiche()
 
 void Clause::add(int lit)
 {
-    /// A compléter
+   if(isin(Lit)==1){
+	   return null;
+   }
+   else if(isin(Lit)==-1{
+	   cout << "Erreur, la négation de ce littéral est dans la classe courante." << endl;
+        }
+	else if(this.n==this.capa){
+		agrandir(thsi.capa+5
+		}
+
 }
 
 int main()
