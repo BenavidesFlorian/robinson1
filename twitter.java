@@ -28,42 +28,23 @@ public class Twitter {
         
         List<Status> status = twitter.getHomeTimeline();
         EcrireFichier ef=new EcrireFichier();
-        for(Status st : status)
-        {
-            String s=st.getUser().getName()+"---------"+st.getText();
-            System.out.println(s);
-            ef.EcrireFichier(s);
-            
-            
-
-            
-            
-            
-            /*try{    
-                FileOutputStream fout=new FileOutputStream("/Users/Florian/Documents/twitter/entrepot.txt");    
-                String s= st.getUser().getName()+"---------"+st.getText()+"\n";    
-                byte b[]=s.getBytes();//converting string into byte array    
-                fout.write(b);    
-                fout.close();    
-                System.out.println("success...");    
-            }catch(Exception e){System.out.println(e);}    */
+        
+        
+        try{
+                // Create file 
+                FileWriter fstream = new FileWriter("/Users/Florian/Documents/twitter/entrepot.txt");
+                BufferedWriter out = new BufferedWriter(fstream);
+                for(Status st : status)
+                {
+                    String s=st.getUser().getName()+"---------"+st.getText();
+                    System.out.println(s);
+                    out.write(s);
+                    out.newLine();
+                }
+                //Close the output stream
+                out.close();
+            }catch (Exception e){//Catch exception if any
+            System.err.println("Error: " + e.getMessage());
+            }
         }
     }
-            
-        
-        
-        
-        
-        
-        /*try{    
-             FileOutputStream fout=new FileOutputStream("D:\\testout.txt");    
-             String s="Welcome to javaTpoint.";    
-             byte b[]=s.getBytes();//converting string into byte array    
-             fout.write(b);    
-             fout.close();    
-             System.out.println("success...");    
-            }catch(Exception e){System.out.println(e);}*/  
-      
-    
-    
-}
